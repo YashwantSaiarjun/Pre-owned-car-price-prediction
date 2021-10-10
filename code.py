@@ -129,4 +129,73 @@ sns.boxplot(y=df['powerPS'])
 
 sns.regplot(x=df['powerPS'],y=df['price'],fit_reg=True,scatter=True)
 
+#===========================================================================
+# DATA VISUALIZATION
+#===========================================================================
+
+# VARIABLE SELLER
+
+df['seller'].value_counts()
+pd.crosstab(df['seller'],columns='count',normalize=True)
+sns.countplot(x=df['seller'])
+
+# VARIABLE OFFERTYPE
+
+pd.crosstab(df['offerType'],columns='count',normalize=False)
+sns.countplot(x=df['offerType'])
+
+# VARIABLE ABTEST
+
+df['abtest'].value_counts()
+sns.countplot(x=df['abtest'])
+
+# VARIABLE VEHICLE
+
+df['vehicleType'].value_counts()
+sns.countplot(x=df['vehicleType'])
+sns.boxplot(x=df['vehicleType'],y=df['price'])
+
+# VARAIBLE GEARBOX
+
+df['gearbox'].value_counts()
+sns.countplot(x=df['gearbox'])
+sns.boxplot(x=df['gearbox'],y=df['price'])
+
+# VARIABLE MODEL
+
+df['model'].value_counts()
+
+
+# VARIABLE KILOMETER
+
+df['kilometer'].value_counts()
+sns.countplot(x=df['kilometer'])
+sns.boxplot(x=df['kilometer'],y=df['price'])
+
+# VARIABLE FUELTYPE
+
+df['fuelType'].value_counts()
+sns.countplot(x=df['fuelType'])
+sns.boxplot(x=df['fuelType'],y=df['price'])
+
+# VARIABLE BRAND
+
+df['brand'].value_counts()
+sns.countplot(x=df['brand'])
+sns.boxplot(x=df['brand'],y=df['price'])
+
+# VARIABLE NOT REPAIRED DAMAGE
+
+df['notRepairedDamage'].value_counts()
+sns.countplot(x=df['notRepairedDamage'])
+sns.boxplot(x=df['notRepairedDamage'],y=df['price'])
+
+#===========================================================================
+# REMOVING INSIGNIFICANT VARIABLES
+#===========================================================================
+
+cols=['seller','offerType','abtest']
+df=df.drop(columns=cols,axis=1)
+
+
 
