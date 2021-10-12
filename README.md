@@ -11,6 +11,9 @@ Python
 ## Required libraries: 
 pandas,numpy,seaborn
 
+## Required machine learning librarires: 
+train_test_split, LinearRegression, RandomForestRegressor, mean_squared_error, accuracy_score
+
 ## Machine Learning model used: Linear Regression
 
 ### Accuracy of the model: 78.10850406670798 %
