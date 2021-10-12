@@ -1,4 +1,4 @@
-# project under construction !!!!
+
 # Pre-owned-car-price-prediction
 Predicting the price of pre owned cars using machine learning and python
 
@@ -11,4 +11,6 @@ Python
 ## Required libraries: 
 pandas,numpy,seaborn
 
-## Machine Learning model used: TBA
+## Machine Learning model used: Linear Regression
+
+### Accuracy of the model: 78.10850406670798 %
