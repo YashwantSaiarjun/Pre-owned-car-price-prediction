@@ -197,5 +197,50 @@ sns.boxplot(x=df['notRepairedDamage'],y=df['price'])
 cols=['seller','offerType','abtest']
 df=df.drop(columns=cols,axis=1)
 
+#=================================================================
+# OMITTING MISSING VALUES
+#=================================================================
+
+df_omit=df.dropna(axis=0)
+
+# CREATING DUMMY VARIABLES FOR CATEGORICAL VARIABLES
+
+df_omit=pd.get_dummies(df_omit,drop_first=True)
+
+#=================================================================
+# MACHINE LEARNING
+#=================================================================
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import accuracy_score
+
+# MODEL BUILDING
+
+x1=df_omit.drop(['price'],axis='columns',inplace=False)
+y1=df_omit['price']
+
+y1=np.log(y1)
+
+# SPLITTING INTO TEST TRAIN SETS
+
+x_train,x_test,y_train,y_test=train_test_split(x1,y1,test_size=0.3,random_state=3)
+
+print(x_train.shape,x_test.shape,y_train.shape,y_test.shape)
+
+# LINEAR REGRESSION
+
+model=LinearRegression()
+
+model.fit(x_train,y_train)
+
+pred = model.predict(x_test)
+
+acc=model.score(x_test,y_test)
+print("Accuracy of this model: ",acc*100)
+
+
 
 
